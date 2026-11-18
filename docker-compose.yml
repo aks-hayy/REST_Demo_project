@@ -1,0 +1,14 @@
+services:
+    api:
+      build: .
+      container_name: pos_demo_app
+      ports:
+        - "8000:8000"
+      environment:
+        - DATABASE_URL=sqlite:///./data/test.db
+      volumes:
+        - sqlite_data:/app/data
+      restart: unless-stopped
+
+volumes:
+  sqlite_data:
